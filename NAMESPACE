@@ -1,0 +1,14 @@
+###imports
+import(stats, fitdistrplus)
+
+###exports
+#bestfit class
+export(bestfit)
+
+#predI class
+export(predI)
+S3method(print, predI)
+
+#predP class
+export(predP)
+S3method(print, predP)
