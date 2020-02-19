@@ -4,7 +4,7 @@
 \title{Prediction interval for future observations }
 
 \description{
-Construct a prediction interval (PCI) for future observations from any continuous distribution. Generic method is \code{print}.
+Construct a prediction interval (PI) for future observations from any continuous distribution. Generic method is \code{print}.
 }
 \usage{
 predI(data, dist, s, n, order=NULL, start=NULL, conf=0.95)
@@ -32,7 +32,7 @@ A named list giving the initial values of parameters of the named distribution. 
 \details{
 The dist argument is assumed to specify the distribution by the probability density function, the commulative distribution function and the quantile function (d, p, q).
 By default, best fitting of the data based on maximum likelihood (mle) and moment matching (mme) methods is performed.
-once the parameter(s) is(are) estimated, predI computes the prediction interval (PCI) for the future observation.
+once the parameter(s) is(are) estimated, predI computes the prediction interval (PI) for the future observation.
 This function will be called directly in \code{\link{predP}}.
 }
 
@@ -42,9 +42,6 @@ This function will be called directly in \code{\link{predP}}.
 \item{ lower }{ the lower bound of the interval. }
 \item{ upper }{ the upper bound of the interval. }
 \item{ distname }{ the name of the distribution. }
-\item{ r }{ the length of the data. }
-\item{ s }{ the order of the next observation. }
-\item{ n }{ the length of all the data. }
 \item{ parameters }{ the parameter estimate. }
 
 Generic function:

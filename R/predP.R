@@ -9,7 +9,7 @@ predP<-function(data, dist, no, n, order=NULL, start=NULL, conf=0.95){
   ld<-length(data)
   ls<-no+ld
   if(ls > n ){stop("number of observations exceeds n")}
-  if( ld > n) { stop("n must be greater than data length")}
+  if( ld >= n) { stop("n must be greater than data length")}
   if (is.element(distname, c("exp", "norm", "lnorm", "gamma", "logis", "weibull", "unif"))){
     for(k in (ld+1):ls){
       s<-k
@@ -40,7 +40,7 @@ predP<-function(data, dist, no, n, order=NULL, start=NULL, conf=0.95){
 print.predP <- function(x,...) {
   if (!inherits(x, "predP"))
     stop("Use only with 'predP' objects")
-  cat("Prediction points for xs based on '", x$distname, "' distribution \n")
+  cat("Prediction points for future observations based on '", x$distname, "' distribution \n")
   cat("Prediction points:\n")
   print(cbind.data.frame("s" = x$ns, "xs" = x$newobs), ...)
 }

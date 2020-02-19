@@ -7,8 +7,8 @@ predI <- function(data, dist, s, n, order=NULL, start=NULL, conf=0.95){
     stop("the length of s must be equal to 1")
   if(!is.numeric(n)|| is.character(n) || is.matrix(n) )
     stop("n must be a numeric vector")
-  if( length(data)>s) { stop("s must be greater than data length")}
-  if( length(data)>n) { stop("n must be greater than data length")}
+  if( length(data)>=s) { stop("s must be greater than data length")}
+  if( length(data)>=n) { stop("n must be greater than data length")}
   if( s>n) { stop("n must be greater than s")}
   distname<- dist
   pdistname<-paste("p", distname, sep="")
@@ -50,7 +50,7 @@ predI <- function(data, dist, s, n, order=NULL, start=NULL, conf=0.95){
   interval<-c(lower,upper)
   names(interval)<-c("lower","upper")
   interval<-interval[c("lower", "upper")]
-  int<-list(interval=interval, lower=lower, upper=upper, distname=distname, r=r, s=s, n=n, parameters=parameters)
+  int<-list(interval=interval, lower=lower, upper=upper, distname=distname, parameters=parameters)
   return(structure(int, class = "predI"))
 }
 print.predI <- function(x, ...) {
@@ -58,7 +58,7 @@ print.predI <- function(x, ...) {
     stop("Use only with 'predI' objects")
   cat("Prediction interval for the next observation based on '", x$distname, "' distribution \n")
   cat("Parameters:\n")
-  print(cbind.data.frame("etsimate" = x$parameters), ...)
+  print(cbind.data.frame("estimate" = x$parameters), ...)
   cat("Interval:\n")
-  print(cbind.data.frame("PCI" = x$interval), ...)
+  print(cbind.data.frame("PI" = x$interval), ...)
 }

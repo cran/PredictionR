@@ -1,5 +1,5 @@
 ###imports
-import(stats, fitdistrplus)
+import(stats, fitdistrplus, Renext)
 
 ###exports
 #bestfit class
@@ -12,3 +12,9 @@ S3method(print, predI)
 #predP class
 export(predP)
 S3method(print, predP)
+
+#predmix class
+export(predmix)
+S3method(print, predmix)
+
+
